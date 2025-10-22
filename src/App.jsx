@@ -1,23 +1,26 @@
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./Companents/Navbar";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import Projects from "./Pages/Project";
+import Footer from "./Companents/Footer";
 
-// import Navbar from "./Components/Navbar";
-import {logo} from "./assets/index"
-import Navbar from "./Components/Navbar"
-import styles, { layout } from "./Constants/Style"
-
-import React from 'react'
-
-export default function App() {
+function App() {
   return (
     <>
-    <div className="w-full overflow-hidden text-white bg-primary">
-      <div className={` ${styles.paddingX} ${styles.flexCenter}`}>
-        <div className={`${styles.boxWidth}`}>
-         <Navbar/>
-        
-        </div>
+      <Navbar />
+      <div className="min-h-screen bg-gray-100">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/projects" element={<Projects />} />
+        </Routes>
       </div>
-
-    </div>
+      <Footer />
     </>
-  )
+  );
 }
+
+export default App;
